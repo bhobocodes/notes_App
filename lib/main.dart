@@ -21,6 +21,8 @@ class MyApp extends StatelessWidget {
           seedColor: AppColors.primaryColor,
         ),
         useMaterial3: true,
+        scaffoldBackgroundColor: AppColors.backgroundColor,
+
       ),
       getPages: RoutePages.routes,
       initialRoute: RouteNames.name,
