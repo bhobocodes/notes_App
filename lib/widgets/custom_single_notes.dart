@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 import '../utils/colors.dart';
 
 class CustomSingleNotes extends StatelessWidget {
-  const CustomSingleNotes({super.key});
+  final String title;
+  final String description;
+  final String date;
+  const CustomSingleNotes({super.key, required this.title, required this.description, required this.date});
 
   @override
   Widget build(BuildContext context) {
@@ -24,23 +27,22 @@ class CustomSingleNotes extends StatelessWidget {
             color: AppColors.backgroundColor,
           ),
         ),
-        title: Text(
-          'software Developer',
+        title: Text(title,
           style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
         ),
         subtitle: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Hi there this is a test notes',
+            Text(description,
+              maxLines: 1,
+              overflow:TextOverflow.ellipsis,
               style: TextStyle(color: Colors.black.withOpacity(.5)),
             ),
             const SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
-                  '12:05 AM',
+                Text(date,
                   style: TextStyle(
                     color: Colors.black.withOpacity(.5),
                     fontSize: 11,
@@ -49,7 +51,6 @@ class CustomSingleNotes extends StatelessWidget {
                 InkWell(onTap: () {}, child: Icon(Icons.delete)),
               ],
             ),
-
           ],
         ),
       ),

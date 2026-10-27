@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
 
+import '../routes/routes_name.dart';
 import '../utils/colors.dart';
 import '../widgets/custom_single_notes.dart';
 
@@ -10,6 +13,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        margin: const EdgeInsets.only(bottom:10,),
         color: AppColors.backgroundColor,
         child: SafeArea(
           child: Padding(
@@ -50,7 +54,11 @@ class HomeScreen extends StatelessWidget {
                             shrinkWrap: true,
                             itemCount: 10,
                             itemBuilder: (context, index) {
-                              return const CustomSingleNotes();
+                              return CustomSingleNotes(
+                                title: 'Test title',
+                                description: ' i am a noty boy in the wrold',
+                                date: '12:05',
+                              );
                             },
                           ),
                         ],
@@ -62,6 +70,12 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        shape: CircleBorder(),
+        backgroundColor: AppColors.primaryColor,
+      onPressed:() => Get.toNamed(RouteNames.noteScreen),
+      child:Icon(Icons.add,color: Colors.white,),
       ),
     );
   }

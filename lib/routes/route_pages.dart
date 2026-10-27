@@ -12,7 +12,7 @@ class RoutePages{
     ),
 
     GetPage(
-      name: RouteNames.name,
+      name: RouteNames.noteScreen,
       page: () => NoteScreen(),
     )
   ];
